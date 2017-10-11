@@ -1,5 +1,5 @@
 {
-  "name": "socket.io",
+  "name": "RealTimeApp",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -7,11 +7,12 @@
     "start": "node server/server.js"
   },
   "engines": {
-    "node" : "8.5.0"
+    "node": "8.5.0"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.16.2"
+    "express": "^4.16.2",
+    "socket.io": "^2.0.3"
   }
 }
