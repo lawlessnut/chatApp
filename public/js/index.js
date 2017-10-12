@@ -2,10 +2,6 @@ var socket = io();
 
 socket.on("connect",function(){
     console.log("connect tp server")
-    socket.emit("newMessage",{
-        from : "Bhumi",
-        text : 'Hello Vipul'
-    })
 });
 
 socket.on("disconnect",function(){
@@ -16,4 +12,26 @@ socket.on("disconnect",function(){
 
 socket.on("newMessage", function(message){
     console.log("message",message)
+    var li = jQuery('<li></li>');
+    li.text(`${message.from}:${message.text}`);
+    jQuery("#messages").append(li);
+})
+
+/*
+socket.emit("createMessage",{
+    from : "Frank",
+    text :"Hello, This is Frank"
+}, function(){
+    console.log("Go it");
+})
+*/
+
+jQuery("#message-form").on("submit",(e)=>{
+    e.preventDefault();
+    socket.emit("createMessage",{
+        from :"User",
+        text : jQuery("[name=message]").val()
+    }, function(){
+
+    })
 })
